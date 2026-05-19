@@ -1,11 +1,9 @@
 ---
 const links = [
-  { href: '#build', label: 'Build' },
-  { href: '#x402', label: 'x402 Agentic' },
-  { href: '#plan-manager', label: 'Plan Manager' },
-  { href: '#node-tester', label: 'Node Tester' },
-  { href: '#ecosystem', label: 'Ecosystem' },
-  { href: '#community', label: 'Community' },
+  { href: '#ecosystem', label: 'Explore' },
+  { href: '#download',  label: 'dVPN' },
+  { href: '#build',     label: 'Build' },
+  { href: '#community', label: 'More' },
 ];
 ---
 <header class="nav">
@@ -17,7 +15,7 @@ const links = [
       {links.map(l => <a href={l.href}>{l.label}</a>)}
     </nav>
     <div class="nav__cta">
-      <a href="#contact" class="btn btn--primary">Get in Touch</a>
+      <a href="#download" class="btn btn--primary">Use dVPN</a>
     </div>
     <button class="nav__burger" aria-label="Open menu" data-burger>
       <img src="/logos/mobile/hamburger.svg" alt="" width="22" height="22" />
@@ -26,7 +24,7 @@ const links = [
   <div class="nav__drawer" data-drawer hidden>
     <div class="nav__drawer-inner">
       {links.map(l => <a href={l.href} data-drawer-link>{l.label}</a>)}
-      <a href="#contact" class="btn btn--primary" data-drawer-link>Get in Touch</a>
+      <a href="#download" class="btn btn--primary" data-drawer-link>Use dVPN</a>
     </div>
   </div>
 </header>

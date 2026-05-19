@@ -1,24 +1,39 @@
 ---
 const year = new Date().getFullYear();
 const groups = [
-  { title: 'Build', links: [
-    { href: '#build',          label: 'SDK' },
-    { href: '#x402',           label: 'x402 Agentic' },
-    { href: '#plan-manager',   label: 'Plan Manager' },
-    { href: '#node-tester',    label: 'Node Tester' },
+  { title: 'Explore', links: [
+    { href: '#stats',     label: 'Network Statistics' },
+    { href: 'https://node.sentinel.co',            label: 'Node Dashboard' },
+    { href: 'https://map.sentinel.co',             label: 'Node Map' },
+    { href: 'https://explorer.sentinel.co',        label: 'Explorer' },
+    { href: '#ecosystem', label: 'Ecosystem' },
   ]},
-  { title: 'Network', links: [
-    { href: '#earn',           label: 'Run a Node' },
-    { href: '#ecosystem',      label: 'Ecosystem' },
-    { href: 'https://docs.sentinel.co',         label: 'Docs' },
-    { href: 'https://github.com/sentinel-official', label: 'GitHub' },
+  { title: 'Products', links: [
+    { href: '#download',  label: 'Sentinel Shield' },
+    { href: '#download',  label: 'Independent VPN' },
+    { href: '#download',  label: 'NORSE dVPN' },
+    { href: '#download',  label: 'VALT' },
+    { href: '#download',  label: 'EncryptSIM' },
+    { href: '#download',  label: 'Ryn dVPN' },
+    { href: '#download',  label: 'Meile dVPN (beta)' },
   ]},
-  { title: 'Community', links: [
-    { href: 'https://x.com/sentinelp2p',           label: 'X' },
-    { href: 'https://t.me/sentinelp2p',            label: 'Telegram' },
-    { href: 'https://discord.com/invite/mmAA8qF',  label: 'Discord' },
-    { href: 'https://www.youtube.com/@SentinelP2P',label: 'YouTube' },
+  { title: 'dVPN', links: [
+    { href: 'https://docs.sentinel.co',            label: 'Learn' },
+    { href: '#node-hosting', label: 'Run a Node' },
+    { href: '#sdk',          label: 'Build dVPN app' },
+    { href: '#earn',         label: 'Earn from dVPN' },
   ]},
+  { title: 'More', links: [
+    { href: 'https://docs.sentinel.co',            label: 'dVPN Docs' },
+    { href: '#contact',   label: 'Contact Us' },
+  ]},
+];
+const social = [
+  { href: 'https://x.com/sentinelp2p',            label: 'X',        icon: '/logos/mobile/x.svg' },
+  { href: 'https://t.me/sentinelp2p',             label: 'Telegram', icon: '/logos/mobile/telegram.svg' },
+  { href: 'https://discord.com/invite/mmAA8qF',   label: 'Discord',  icon: '/logos/mobile/discord.svg' },
+  { href: 'https://www.youtube.com/@SentinelP2P', label: 'YouTube',  icon: '/logos/mobile/youtube.svg' },
+  { href: 'https://github.com/sentinel-official', label: 'GitHub',   icon: '/logos/mobile/git.svg' },
 ];
 ---
 <footer class="footer">
@@ -26,6 +41,13 @@ const groups = [
     <div class="footer__brand">
       <img src="/logos/logo.svg" alt="Sentinel" width="130" height="28" />
       <p class="footer__tag">Layer 1 for P2P bandwidth. Build your own dVPN.</p>
+      <div class="footer__social">
+        {social.map(s => (
+          <a href={s.href} target="_blank" rel="noopener" aria-label={s.label}>
+            <img src={s.icon} alt="" width="18" height="18" />
+          </a>
+        ))}
+      </div>
     </div>
     {groups.map(g => (
       <div class="footer__col">
@@ -41,7 +63,7 @@ const groups = [
     ))}
   </div>
   <div class="container footer__bottom">
-    <span>© {year} Sentinel. Open source. Uncensorable.</span>
+    <span>Copyright © {year} Capybara Publishing LTD. All rights reserved.</span>
   </div>
 </footer>
 
@@ -54,11 +76,23 @@ const groups = [
   }
   .footer__inner {
     display: grid;
-    grid-template-columns: 1.4fr repeat(3, 1fr);
+    grid-template-columns: 1.4fr repeat(4, 1fr);
     gap: 36px;
   }
   .footer__brand img { height: 26px; width: auto; margin-bottom: 14px; }
-  .footer__tag { font-size: 0.9rem; max-width: 260px; }
+  .footer__tag { font-size: 0.9rem; max-width: 260px; margin-bottom: 18px; }
+  .footer__social { display: flex; gap: 10px; }
+  .footer__social a {
+    width: 34px; height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .footer__social a:hover { border-color: var(--accent); background: rgba(1,86,252,0.12); }
+  .footer__social img { filter: brightness(0) invert(1); opacity: 0.75; }
   .footer__col h4 {
     font-size: 0.78rem;
     letter-spacing: 0.12em;
@@ -76,7 +110,10 @@ const groups = [
     font-size: 0.82rem;
     color: var(--text-mute);
   }
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
+    .footer__inner { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  @media (max-width: 700px) {
     .footer__inner { grid-template-columns: 1fr 1fr; }
   }
 </style>
