@@ -1,0 +1,215 @@
+---
+interface Slide {
+  title: string;
+  body: string;
+  image: string;
+  alt: string;
+}
+
+interface Props {
+  id: string;
+  eyebrow: string;
+  heading: string;
+  intro: string;
+  slides: Slide[];
+  ctaHref?: string;
+  ctaLabel?: string;
+}
+
+const { id, eyebrow, heading, intro, slides, ctaHref, ctaLabel } = Astro.props;
+---
+<section id={id} class="showcase">
+  <div class="container">
+    <div class="showcase__head">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2>{heading}</h2>
+      <p class="showcase__intro">{intro}</p>
+    </div>
+
+    <div class="showcase__viewer" data-showcase>
+      <div class="showcase__track" data-track>
+        {slides.map((s, i) => (
+          <article class="showcase__slide" data-slide={i}>
+            <div class="showcase__image">
+              <img src={s.image} alt={s.alt} loading="lazy" />
+            </div>
+            <div class="showcase__caption">
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="showcase__controls">
+        <button class="showcase__nav" data-prev aria-label="Previous slide">
+          <img src="/logos/mobile/arrow-back.svg" alt="" width="14" height="14" />
+        </button>
+        <div class="showcase__dots" data-dots>
+          {slides.map((_, i) => (
+            <button class="showcase__dot" data-dot={i} aria-label={`Go to slide ${i + 1}`}></button>
+          ))}
+        </div>
+        <button class="showcase__nav" data-next aria-label="Next slide">
+          <img src="/logos/mobile/arrow-front.svg" alt="" width="14" height="14" />
+        </button>
+      </div>
+
+      {ctaHref && ctaLabel && (
+        <div class="showcase__cta">
+          <a href={ctaHref} class="btn btn--primary" target={ctaHref.startsWith('http') ? '_blank' : undefined} rel={ctaHref.startsWith('http') ? 'noopener' : undefined}>{ctaLabel}</a>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .showcase {
+    padding: 96px 0;
+    border-top: 1px solid var(--border);
+  }
+  .showcase__head { max-width: 720px; margin-bottom: 40px; }
+  .showcase__intro { font-size: 1.08rem; }
+
+  .showcase__viewer {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    overflow: hidden;
+  }
+
+  .showcase__track {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+  }
+
+  .showcase__slide {
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 32px;
+    align-items: center;
+    transition: opacity 0.4s ease;
+  }
+
+  .showcase__image {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background:
+      linear-gradient(135deg, rgba(1,86,252,0.14), rgba(61,126,255,0.06)),
+      radial-gradient(800px 300px at 30% 0%, rgba(1,86,252,0.2), transparent 60%),
+      var(--bg-elev);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .showcase__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .showcase__caption h3 {
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .showcase__caption p { color: var(--text-dim); font-size: 1rem; }
+
+  .showcase__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 28px;
+  }
+  .showcase__nav {
+    background: var(--bg-elev);
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    width: 40px; height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.15s ease;
+  }
+  .showcase__nav:hover { border-color: var(--accent); }
+  .showcase__dots { display: flex; gap: 8px; }
+  .showcase__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-strong);
+    border: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .showcase__dot[data-active] {
+    background: var(--accent);
+    transform: scale(1.3);
+  }
+  .showcase__cta { display: flex; justify-content: center; margin-top: 24px; }
+
+  @media (max-width: 900px) {
+    .showcase__slide { grid-template-columns: 1fr; }
+    .showcase__viewer { padding: 18px; }
+  }
+</style>
+
+<script>
+  type ShowcaseRoot = HTMLElement & { __interval?: number };
+
+  function initShowcase(root: ShowcaseRoot) {
+    const track = root.querySelector<HTMLDivElement>('[data-track]');
+    const slides = Array.from(root.querySelectorAll<HTMLElement>('[data-slide]'));
+    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-dot]'));
+    const prev = root.querySelector<HTMLButtonElement>('[data-prev]');
+    const next = root.querySelector<HTMLButtonElement>('[data-next]');
+    if (!track || slides.length === 0) return;
+
+    let idx = 0;
+
+    const render = () => {
+      track.scrollTo({ left: track.clientWidth * idx, behavior: 'smooth' });
+      dots.forEach((d, i) => {
+        if (i === idx) d.setAttribute('data-active', '');
+        else d.removeAttribute('data-active');
+      });
+    };
+
+    const go = (n: number) => {
+      idx = (n + slides.length) % slides.length;
+      render();
+    };
+
+    prev?.addEventListener('click', () => go(idx - 1));
+    next?.addEventListener('click', () => go(idx + 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+
+    const start = () => {
+      stop();
+      root.__interval = window.setInterval(() => go(idx + 1), 6000);
+    };
+    const stop = () => {
+      if (root.__interval) {
+        clearInterval(root.__interval);
+        root.__interval = undefined;
+      }
+    };
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+
+    window.addEventListener('resize', render);
+    render();
+    start();
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-showcase]').forEach(el => initShowcase(el as ShowcaseRoot));
+</script>

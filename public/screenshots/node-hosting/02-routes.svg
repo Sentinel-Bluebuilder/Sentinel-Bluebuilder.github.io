@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0156fc" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0b0f17" stop-opacity="1"/>
+    </linearGradient>
+    <radialGradient id="r" cx="0.8" cy="0.1" r="0.9">
+      <stop offset="0%" stop-color="#3d7eff" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#0b0f17" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="#0b0f17"/>
+  <rect width="1600" height="1000" fill="url(#g)"/>
+  <rect width="1600" height="1000" fill="url(#r)"/>
+  <g font-family="Funnel Display, system-ui, sans-serif" fill="#e6eaf2">
+    <text x="80" y="120" font-size="22" fill="#6ee7ff" letter-spacing="6">SENTINEL · PREVIEW</text>
+    <text x="80" y="220" font-size="76" font-weight="600" letter-spacing="-2">Routes &amp; Protocols</text>
+    <text x="80" y="290" font-size="28" fill="#98a0b0">WireGuard · V2Ray · OpenVPN · per-route pricing</text>
+    <g transform="translate(80, 380)" stroke="#2a3142" stroke-width="1" fill="#10151f">
+      <rect x="0" y="0" width="460" height="500" rx="14"/>
+      <rect x="490" y="0" width="460" height="500" rx="14"/>
+      <rect x="980" y="0" width="460" height="500" rx="14"/>
+    </g>
+    <g transform="translate(120, 440)" font-size="22" fill="#c8d1de">
+      <text fill="#3d7eff" font-weight="600">WireGuard</text>
+      <text y="40" fill="#7f8497">port 51820 · UDP</text>
+      <text y="80" fill="#c8d1de">$0.0001 / GB</text>
+      <text y="120" fill="#28c840">● enabled</text>
+    </g>
+    <g transform="translate(530, 440)" font-size="22" fill="#c8d1de">
+      <text fill="#3d7eff" font-weight="600">V2Ray</text>
+      <text y="40" fill="#7f8497">vmess + tls · :443</text>
+      <text y="80" fill="#c8d1de">$0.0002 / GB</text>
+      <text y="120" fill="#28c840">● enabled</text>
+    </g>
+    <g transform="translate(1020, 440)" font-size="22" fill="#c8d1de">
+      <text fill="#3d7eff" font-weight="600">OpenVPN</text>
+      <text y="40" fill="#7f8497">tcp · :1194</text>
+      <text y="80" fill="#c8d1de">$0.0003 / GB</text>
+      <text y="120" fill="#7f8497">○ disabled</text>
+    </g>
+  </g>
+</svg>

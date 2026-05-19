@@ -1,0 +1,80 @@
+---
+---
+<section class="hero">
+  <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="">
+    <source src="/videos/hero.mp4" type="video/mp4" />
+  </video>
+  <div class="hero__overlay"></div>
+  <div class="container hero__inner">
+    <span class="eyebrow">Layer 1 for P2P Bandwidth</span>
+    <h1>Build your own<br/><span class="hero__accent">decentralized VPN</span>.</h1>
+    <p class="hero__sub">
+      Sentinel gives developers the bandwidth, routing, staking and payments rails to ship a
+      production dVPN. Bring your protocol, your client, your distribution &mdash; we handle the network.
+    </p>
+    <div class="hero__cta">
+      <a href="#build" class="btn btn--primary">Start with the SDK</a>
+      <a href="https://docs.sentinel.co" target="_blank" rel="noopener" class="btn">Read the Docs</a>
+    </div>
+    <div class="hero__chip-row">
+      <span class="hero__chip">x402 Agentic Payments</span>
+      <span class="hero__chip">Plan Manager</span>
+      <span class="hero__chip">Node Tester</span>
+      <span class="hero__chip">Open Source SDK</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.45;
+    filter: saturate(1.1);
+  }
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(900px 600px at 75% 30%, rgba(1, 86, 252, 0.22), transparent 60%),
+      linear-gradient(180deg, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.85) 70%, var(--background) 100%);
+  }
+  .hero__inner {
+    position: relative;
+    padding: 120px 24px 80px;
+    max-width: 980px;
+  }
+  .hero__accent {
+    background: linear-gradient(135deg, #3d7eff 0%, #0156fc 60%, #5468ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero__sub {
+    max-width: 660px;
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    margin: 18px 0 32px;
+  }
+  .hero__cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+  .hero__chip-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .hero__chip {
+    font-size: 0.82rem;
+    padding: 6px 12px;
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    color: var(--text-dim);
+    background: rgba(255,255,255,0.02);
+  }
+</style>

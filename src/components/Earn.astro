@@ -1,0 +1,83 @@
+---
+---
+<section id="earn" class="section earn">
+  <div class="container earn__inner">
+    <div class="earn__copy">
+      <span class="eyebrow">Earn from Sentinel</span>
+      <h2>Earn by powering privacy.</h2>
+      <p>
+        Provide bandwidth to decentralized VPNs and earn rewards for safeguarding privacy.
+        Run a node on a spare box, a VPS, or fleet at scale.
+      </p>
+      <ul class="earn__bullets">
+        <li><strong>3,200+</strong> active node operators</li>
+        <li>Available on Linux &mdash; one-line installer</li>
+        <li>Settlement on chain, no custodial middleman</li>
+      </ul>
+      <div class="earn__cta">
+        <a href="https://docs.sentinel.co/node" target="_blank" rel="noopener" class="btn btn--primary">Run a Node</a>
+        <a href="#node-tester" class="btn">Test Your Node</a>
+      </div>
+    </div>
+    <div class="earn__visual" aria-hidden="true">
+      <div class="earn__grid">
+        {Array.from({ length: 36 }).map((_, i) => <span class="earn__dot" style={`--d:${i}`}></span>)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .earn { background: var(--bg-elev); border-top: 1px solid var(--border); }
+  .earn__inner {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .earn__bullets {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--text-dim);
+  }
+  .earn__bullets li::before { content: '•'; color: var(--accent-2); margin-right: 10px; }
+  .earn__bullets strong { color: var(--text); }
+  .earn__cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .earn__visual {
+    aspect-ratio: 1 / 1;
+    background: radial-gradient(400px 300px at 50% 50%, rgba(1,86,252,0.18), transparent 60%);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .earn__grid {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 18px;
+  }
+  .earn__dot {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(1,86,252,0.28);
+    box-shadow: 0 0 0 1px rgba(61,126,255,0.2) inset;
+    animation: pulse 3.2s ease-in-out infinite;
+    animation-delay: calc(var(--d) * 80ms);
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; transform: scale(0.85); }
+    50%      { opacity: 1;   transform: scale(1.05); background: rgba(61,126,255,0.65); }
+  }
+
+  @media (max-width: 900px) {
+    .earn__inner { grid-template-columns: 1fr; }
+    .earn__grid { grid-template-columns: repeat(8, 1fr); }
+  }
+</style>

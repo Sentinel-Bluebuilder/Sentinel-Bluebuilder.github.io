@@ -1,0 +1,51 @@
+---
+const links = [
+  { href: 'https://x.com/sentinelp2p',                 label: 'X (Twitter)', icon: '/logos/mobile/x.svg' },
+  { href: 'https://t.me/sentinelp2p',                  label: 'Telegram',    icon: '/logos/mobile/telegram.svg' },
+  { href: 'https://github.com/sentinel-official',      label: 'GitHub',      icon: '/logos/mobile/git.svg' },
+  { href: 'https://discord.com/invite/mmAA8qF',        label: 'Discord',     icon: '/logos/mobile/discord.svg' },
+  { href: 'https://www.youtube.com/@SentinelP2P',      label: 'YouTube',     icon: '/logos/mobile/youtube.svg' },
+];
+---
+<section id="community" class="section community">
+  <div class="container">
+    <span class="eyebrow">Join the Community</span>
+    <h2>Builders shipping dVPNs in the open.</h2>
+    <p class="community__intro">
+      Ask questions, post your build, find collaborators. Sentinel is maintained in public.
+    </p>
+    <div class="community__grid">
+      {links.map(l => (
+        <a href={l.href} target="_blank" rel="noopener" class="community__card">
+          <img src={l.icon} alt="" width="22" height="22" />
+          <span>{l.label}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .community__intro { max-width: 640px; margin-bottom: 32px; }
+  .community__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+  }
+  .community__card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 22px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .community__card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  @media (max-width: 900px) {
+    .community__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

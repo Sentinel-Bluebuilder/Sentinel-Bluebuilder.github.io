@@ -1,0 +1,71 @@
+---
+---
+<section id="contact" class="section contact">
+  <div class="container contact__inner">
+    <div class="contact__copy">
+      <span class="eyebrow">Build on the Sentinel Network</span>
+      <h2>Got a dVPN idea? Let's ship it together.</h2>
+      <p>Interested in building your project on Sentinel? Tell us what you're working on &mdash; we'll point you at the right SDK, partner, or grant.</p>
+    </div>
+    <form class="contact__form" action="https://formsubmit.co/CHANGE_ME@example.com" method="POST">
+      <input type="hidden" name="_subject" value="New dVPN build inquiry — sentinel.co" />
+      <input type="hidden" name="_template" value="table" />
+      <label>
+        <span>Name</span>
+        <input type="text" name="name" required autocomplete="name" />
+      </label>
+      <label>
+        <span>Email</span>
+        <input type="email" name="email" required autocomplete="email" />
+      </label>
+      <label>
+        <span>What are you building?</span>
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+      <button type="submit" class="btn btn--primary">Get in Touch</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .contact { background: var(--bg-elev); border-top: 1px solid var(--border); }
+  .contact__inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+  }
+  .contact__form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.88rem;
+    color: var(--text-dim);
+  }
+  .contact__form input, .contact__form textarea {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.15s ease;
+  }
+  .contact__form input:focus, .contact__form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  @media (max-width: 900px) {
+    .contact__inner { grid-template-columns: 1fr; }
+  }
+</style>

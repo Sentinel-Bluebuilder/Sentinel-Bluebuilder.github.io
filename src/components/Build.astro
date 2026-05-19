@@ -1,0 +1,76 @@
+---
+const items = [
+  {
+    icon: '/logos/overview/apps.svg',
+    title: 'Build a dVPN App',
+    body: 'Create your own decentralized VPN application. Leverage Sentinel\'s bandwidth, routing, and staking logic. Deploy to Android, iOS, desktop, or custom stacks.',
+    link: { href: 'https://docs.sentinel.co/sdk', label: 'SDK Docs' },
+  },
+  {
+    icon: '/logos/overview/network.svg',
+    title: 'Use Your Preferred Protocol',
+    body: 'WireGuard, V2Ray, OpenVPN, or your own. Sentinel is protocol-agnostic at the routing layer.',
+    link: { href: 'https://docs.sentinel.co/protocols', label: 'Protocol Adapters' },
+  },
+  {
+    icon: '/logos/overview/git.svg',
+    title: 'Add Payment Gateways',
+    body: 'Plug in x402 agentic payments, on-chain settlement, or your own billing &mdash; the Plan Manager handles subscriptions and per-route pricing.',
+    link: { href: '#plan-manager', label: 'See Plan Manager' },
+  },
+  {
+    icon: '/logos/overview/langs.svg',
+    title: 'TypeScript-first SDK',
+    body: 'Strongly-typed clients for browser, Node, React Native and Electron. Bring your own UI &mdash; we handle the transport.',
+    link: { href: 'https://github.com/sentinel-official', label: 'GitHub' },
+  },
+];
+---
+<section id="build" class="section build">
+  <div class="container">
+    <span class="eyebrow">Build on Sentinel</span>
+    <h2>Everything you need to ship a production dVPN.</h2>
+    <p class="build__intro">
+      The Sentinel SDK gives you bandwidth, routing, payments, and the operational tooling to keep
+      your network healthy. Open source. No API keys. No vendor lock-in.
+    </p>
+    <div class="grid grid-2 build__grid">
+      {items.map(i => (
+        <div class="card build__card">
+          <div class="build__icon"><img src={i.icon} alt="" width="20" height="20" /></div>
+          <h3>{i.title}</h3>
+          <p>{i.body}</p>
+          <a href={i.link.href} class="build__link" target={i.link.href.startsWith('http') ? '_blank' : undefined} rel={i.link.href.startsWith('http') ? 'noopener' : undefined}>
+            {i.link.label} <img src="/media/solid-right-arrow.svg" alt="" width="12" height="12" />
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .build__intro { max-width: 640px; margin-bottom: 36px; }
+  .build__grid { margin-top: 20px; }
+  .build__card { display: flex; flex-direction: column; gap: 10px; }
+  .build__icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: rgba(1,86,252,0.14);
+    border: 1px solid var(--border-strong);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .build__card h3 { color: var(--text); font-size: 1.1rem; margin: 6px 0 2px; }
+  .build__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent-2);
+    font-size: 0.9rem;
+    margin-top: 6px;
+  }
+  .build__link img { transition: transform 0.15s ease; }
+  .build__link:hover img { transform: translateX(3px); }
+</style>

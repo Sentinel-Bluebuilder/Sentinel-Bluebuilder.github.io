@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0156fc" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0b0f17" stop-opacity="1"/>
+    </linearGradient>
+    <radialGradient id="r" cx="0.2" cy="0.1" r="0.9">
+      <stop offset="0%" stop-color="#3d7eff" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#0b0f17" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="#0b0f17"/>
+  <rect width="1600" height="1000" fill="url(#g)"/>
+  <rect width="1600" height="1000" fill="url(#r)"/>
+  <g font-family="Funnel Display, system-ui, sans-serif" fill="#e6eaf2">
+    <text x="80" y="120" font-size="22" fill="#6ee7ff" letter-spacing="6">SENTINEL · PREVIEW</text>
+    <text x="80" y="220" font-size="76" font-weight="600" letter-spacing="-2">Node Installer</text>
+    <text x="80" y="290" font-size="28" fill="#98a0b0">One-line install · bare metal, VPS or container</text>
+    <g transform="translate(80, 380)" stroke="#2a3142" stroke-width="1" fill="#10151f">
+      <rect x="0" y="0" width="1440" height="500" rx="14"/>
+    </g>
+    <g transform="translate(120, 440)" font-family="SF Mono, ui-monospace, Menlo, Consolas, monospace" font-size="22" fill="#c8d1de">
+      <text y="0" fill="#7f8497">$ curl -sSL sentinel.co/install.sh | bash</text>
+      <text y="50" fill="#3d7eff">→ downloading sentinel-node v2.4.1</text>
+      <text y="90" fill="#c8d1de">→ detecting WireGuard, V2Ray, OpenVPN</text>
+      <text y="130" fill="#c8d1de">→ registering on chain: sentnode1q...x9k</text>
+      <text y="170" fill="#28c840">✓ node online · earning bandwidth rewards</text>
+      <text y="220" fill="#7f8497">$ sentinel-node status</text>
+      <text y="260" fill="#c8d1de">peers: 142 · uptime: 100% · region: eu-fra</text>
+    </g>
+  </g>
+</svg>

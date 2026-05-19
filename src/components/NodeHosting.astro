@@ -1,0 +1,39 @@
+---
+import Showcase from './Showcase.astro';
+
+const slides = [
+  {
+    title: 'One-line node installer',
+    body: 'Run the installer on Linux — bare metal, VPS, or container. The node registers itself on chain and starts earning the moment it\'s healthy.',
+    image: '/screenshots/node-hosting/01-install.svg',
+    alt: 'Node hosting — installer',
+  },
+  {
+    title: 'Configure routes and protocols',
+    body: 'WireGuard, V2Ray, OpenVPN — enable what you want. Set per-route pricing, geo-restrictions, and bandwidth caps from a single config.',
+    image: '/screenshots/node-hosting/02-routes.svg',
+    alt: 'Node hosting — routes and protocols',
+  },
+  {
+    title: 'Monitor revenue and uptime',
+    body: 'Live dashboard for revenue, sessions, bandwidth and uptime. Alerts when latency drifts or a peer drops.',
+    image: '/screenshots/node-hosting/03-dashboard.svg',
+    alt: 'Node hosting — monitoring dashboard',
+  },
+  {
+    title: 'Scale to a fleet',
+    body: 'Operate one node or a fleet of thousands. Group nodes by region, assign to plans, and orchestrate from a single control plane.',
+    image: '/screenshots/node-hosting/04-fleet.svg',
+    alt: 'Node hosting — fleet management',
+  },
+];
+---
+<Showcase
+  id="node-hosting"
+  eyebrow="Node Hosting"
+  heading="Host a node. Earn bandwidth rewards."
+  intro="Run a Sentinel node in minutes and join 3,200+ operators powering the network. One node or a fleet — the tooling scales with you."
+  slides={slides}
+  ctaHref="https://docs.sentinel.co/node"
+  ctaLabel="Host a Node"
+/>

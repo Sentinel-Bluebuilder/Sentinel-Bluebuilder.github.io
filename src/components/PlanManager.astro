@@ -1,0 +1,39 @@
+---
+import Showcase from './Showcase.astro';
+
+const slides = [
+  {
+    title: 'Create a subscription plan',
+    body: 'Define plans with pricing, regions, bandwidth caps, and route quality. Stripe, on-chain, or x402 — pick the rails that fit your users.',
+    image: '/screenshots/plan-manager/01-overview.svg',
+    alt: 'Plan Manager — create a subscription plan',
+  },
+  {
+    title: 'Add nodes to the plan',
+    body: 'Drop any Sentinel node into a plan in seconds. Filter by country, capacity, protocol, or operator. The Plan Manager handles routing and failover for you.',
+    image: '/screenshots/plan-manager/02-x402.svg',
+    alt: 'Plan Manager — add nodes',
+  },
+  {
+    title: 'Pluggable payment gateways',
+    body: 'x402, USDC, BTC, card, on-ramps — mix and match per plan. Keep the gateway you already trust; add the ones your users ask for.',
+    image: '/screenshots/plan-manager/03-gateways.svg',
+    alt: 'Plan Manager — payment gateways',
+  },
+  {
+    title: 'Live analytics',
+    body: 'Revenue, retention, bandwidth and node health — per plan, per region, per agent. Export anywhere.',
+    image: '/screenshots/plan-manager/04-analytics.svg',
+    alt: 'Plan Manager — analytics',
+  },
+];
+---
+<Showcase
+  id="plan-manager"
+  eyebrow="Plan Manager"
+  heading="Create a subscription plan, add nodes."
+  intro="The Plan Manager turns raw bandwidth into priced plans. Pick the nodes, the pricing model, and the payment rails — ship it to users in minutes."
+  slides={slides}
+  ctaHref="https://github.com/sentinel-official"
+  ctaLabel="Open Plan Manager"
+/>

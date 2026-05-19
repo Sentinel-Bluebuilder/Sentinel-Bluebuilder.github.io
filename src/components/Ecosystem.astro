@@ -1,0 +1,49 @@
+---
+const apps = [
+  { name: 'Ryn VPN',         desc: 'Consumer VPN with AES-256 encryption, no-logs. Android & iOS.' },
+  { name: 'Sentinel Shield', desc: 'Flagship open-source dVPN. WireGuard & V2Ray. Android & iOS.' },
+  { name: 'Independent VPN', desc: 'Free decentralized VPN on Sentinel. WireGuard & V2Ray.' },
+  { name: 'DVPN by NORSE',   desc: 'Decentralized VPN wrapped into user-friendly apps for all platforms.' },
+  { name: 'Meile dVPN',      desc: 'Sentinel-powered desktop dVPN for macOS, Linux & Windows.' },
+  { name: 'VALT',            desc: 'Capture and protect the data you create every day.' },
+  { name: 'encryptSIM',      desc: 'Privacy-first global eSIM. No KYC, no logs. SOC2 Type II.' },
+];
+---
+<section id="ecosystem" class="section ecosystem">
+  <div class="container">
+    <span class="eyebrow">Explore the Ecosystem</span>
+    <h2>dVPN apps already shipping on Sentinel.</h2>
+    <p class="ecosystem__intro">
+      Independent teams use the Sentinel SDK to ship dVPNs to millions of users.
+      Yours could be next.
+    </p>
+    <div class="grid grid-3 ecosystem__grid">
+      {apps.map(a => (
+        <div class="card eco__card">
+          <div class="eco__icon">
+            <img src="/logos/shield-icon.svg" alt="" width="22" height="22" />
+          </div>
+          <h3>{a.name}</h3>
+          <p>{a.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ecosystem__intro { max-width: 640px; margin-bottom: 36px; }
+  .eco__card { display: flex; flex-direction: column; gap: 8px; }
+  .eco__icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: rgba(1,86,252,0.14);
+    border: 1px solid var(--border-strong);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .eco__card h3 { font-size: 1.05rem; color: var(--text); margin: 0; }
+  .eco__card p { font-size: 0.92rem; margin: 0; }
+</style>

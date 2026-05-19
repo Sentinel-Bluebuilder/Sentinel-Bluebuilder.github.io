@@ -1,0 +1,93 @@
+---
+const links = [
+  { href: '#build', label: 'Build' },
+  { href: '#x402', label: 'x402 Agentic' },
+  { href: '#plan-manager', label: 'Plan Manager' },
+  { href: '#node-tester', label: 'Node Tester' },
+  { href: '#ecosystem', label: 'Ecosystem' },
+  { href: '#community', label: 'Community' },
+];
+---
+<header class="nav">
+  <div class="container nav__row">
+    <a href="/" class="nav__brand" aria-label="Sentinel home">
+      <img src="/logos/logo.svg" alt="Sentinel" width="120" height="28" />
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      {links.map(l => <a href={l.href}>{l.label}</a>)}
+    </nav>
+    <div class="nav__cta">
+      <a href="#contact" class="btn btn--primary">Get in Touch</a>
+    </div>
+    <button class="nav__burger" aria-label="Open menu" data-burger>
+      <img src="/logos/mobile/hamburger.svg" alt="" width="22" height="22" />
+    </button>
+  </div>
+  <div class="nav__drawer" data-drawer hidden>
+    <div class="nav__drawer-inner">
+      {links.map(l => <a href={l.href} data-drawer-link>{l.label}</a>)}
+      <a href="#contact" class="btn btn--primary" data-drawer-link>Get in Touch</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(14px);
+    background: rgba(6, 8, 13, 0.7);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    gap: 24px;
+  }
+  .nav__brand img { height: 26px; width: auto; }
+  .nav__links {
+    display: flex;
+    gap: 28px;
+    font-size: 0.92rem;
+    color: var(--text-dim);
+  }
+  .nav__links a { transition: color 0.15s ease; }
+  .nav__links a:hover { color: var(--text); }
+  .nav__burger {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    border-radius: 10px;
+    padding: 8px;
+  }
+  .nav__drawer {
+    border-top: 1px solid var(--border);
+    background: var(--bg-elev);
+  }
+  .nav__drawer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px 24px 24px;
+  }
+  @media (max-width: 900px) {
+    .nav__links, .nav__cta { display: none; }
+    .nav__burger { display: inline-flex; }
+  }
+</style>
+
+<script>
+  const burger = document.querySelector<HTMLButtonElement>('[data-burger]');
+  const drawer = document.querySelector<HTMLDivElement>('[data-drawer]');
+  const links = document.querySelectorAll<HTMLAnchorElement>('[data-drawer-link]');
+  burger?.addEventListener('click', () => {
+    if (!drawer) return;
+    drawer.hidden = !drawer.hidden;
+  });
+  links.forEach(l => l.addEventListener('click', () => {
+    if (drawer) drawer.hidden = true;
+  }));
+</script>

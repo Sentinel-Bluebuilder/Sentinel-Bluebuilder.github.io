@@ -1,0 +1,102 @@
+---
+---
+<section id="x402" class="section x402">
+  <div class="container x402__inner">
+    <div class="x402__copy">
+      <span class="eyebrow">x402 Agentic Payments</span>
+      <h2>Bandwidth that pays itself.</h2>
+      <p>
+        Sentinel is the first dVPN network with native <strong>x402</strong> support &mdash; the
+        HTTP 402 standard for machine-to-machine payments. Agents pay for bandwidth per request,
+        per second, or per gigabyte, with no API keys, no accounts, and no human in the loop.
+      </p>
+      <ul class="x402__bullets">
+        <li><span>Pay-as-you-route</span> &mdash; agents stream payment alongside traffic.</li>
+        <li><span>No middlemen</span> &mdash; settlement happens directly on chain.</li>
+        <li><span>Composable</span> &mdash; works with any wallet, any agent stack.</li>
+      </ul>
+      <div class="x402__cta">
+        <a href="https://docs.sentinel.co" target="_blank" rel="noopener" class="btn btn--primary">Read x402 Spec</a>
+        <a href="#build" class="btn">See SDK Example</a>
+      </div>
+    </div>
+    <div class="x402__panel">
+      <div class="x402__code">
+        <div class="x402__code-head">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="x402__code-title">agent.ts</span>
+        </div>
+<pre><code>{`import { SentinelClient } from '@sentinel/sdk';
+import { x402 } from '@sentinel/x402';
+
+const client = new SentinelClient({
+  payment: x402({ wallet, asset: 'USDC' }),
+});
+
+// Agent pays per-request, no API key needed.
+const res = await client.fetch('https://target.example/data', {
+  route: 'auto',          // pick the cheapest healthy node
+  maxCost: '0.0005 USDC', // hard ceiling per request
+});`}</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .x402 { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-elev) 100%); }
+  .x402__inner {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .x402__bullets {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--text-dim);
+  }
+  .x402__bullets li::before {
+    content: '→';
+    color: var(--accent-2);
+    margin-right: 10px;
+  }
+  .x402__bullets span { color: var(--text); font-weight: 500; }
+  .x402__cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .x402__panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    box-shadow: 0 30px 60px -30px var(--accent-glow);
+  }
+  .x402__code-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 6px 14px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 14px;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: #2a3142; }
+  .dot:nth-child(1) { background: #ff5f57; }
+  .dot:nth-child(2) { background: #febc2e; }
+  .dot:nth-child(3) { background: #28c840; }
+  .x402__code-title { margin-left: 10px; color: var(--text-mute); font-size: 0.85rem; }
+  .x402__code pre {
+    margin: 0;
+    padding: 4px 8px 8px;
+    overflow-x: auto;
+    color: #c8d1de;
+    font-size: 0.86rem;
+    line-height: 1.6;
+    font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+  }
+  @media (max-width: 900px) {
+    .x402__inner { grid-template-columns: 1fr; gap: 36px; }
+  }
+</style>

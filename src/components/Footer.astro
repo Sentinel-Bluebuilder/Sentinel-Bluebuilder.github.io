@@ -1,0 +1,82 @@
+---
+const year = new Date().getFullYear();
+const groups = [
+  { title: 'Build', links: [
+    { href: '#build',          label: 'SDK' },
+    { href: '#x402',           label: 'x402 Agentic' },
+    { href: '#plan-manager',   label: 'Plan Manager' },
+    { href: '#node-tester',    label: 'Node Tester' },
+  ]},
+  { title: 'Network', links: [
+    { href: '#earn',           label: 'Run a Node' },
+    { href: '#ecosystem',      label: 'Ecosystem' },
+    { href: 'https://docs.sentinel.co',         label: 'Docs' },
+    { href: 'https://github.com/sentinel-official', label: 'GitHub' },
+  ]},
+  { title: 'Community', links: [
+    { href: 'https://x.com/sentinelp2p',           label: 'X' },
+    { href: 'https://t.me/sentinelp2p',            label: 'Telegram' },
+    { href: 'https://discord.com/invite/mmAA8qF',  label: 'Discord' },
+    { href: 'https://www.youtube.com/@SentinelP2P',label: 'YouTube' },
+  ]},
+];
+---
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <img src="/logos/logo.svg" alt="Sentinel" width="130" height="28" />
+      <p class="footer__tag">Layer 1 for P2P bandwidth. Build your own dVPN.</p>
+    </div>
+    {groups.map(g => (
+      <div class="footer__col">
+        <h4>{g.title}</h4>
+        <ul>
+          {g.links.map(l => (
+            <li>
+              <a href={l.href} target={l.href.startsWith('http') ? '_blank' : undefined} rel={l.href.startsWith('http') ? 'noopener' : undefined}>{l.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+  <div class="container footer__bottom">
+    <span>© {year} Sentinel. Open source. Uncensorable.</span>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--border);
+    background: #04060a;
+    padding: 64px 0 28px;
+    margin-top: 0;
+  }
+  .footer__inner {
+    display: grid;
+    grid-template-columns: 1.4fr repeat(3, 1fr);
+    gap: 36px;
+  }
+  .footer__brand img { height: 26px; width: auto; margin-bottom: 14px; }
+  .footer__tag { font-size: 0.9rem; max-width: 260px; }
+  .footer__col h4 {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin-bottom: 14px;
+  }
+  .footer__col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .footer__col a { color: var(--text-dim); font-size: 0.92rem; transition: color 0.15s ease; }
+  .footer__col a:hover { color: var(--text); }
+  .footer__bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem;
+    color: var(--text-mute);
+  }
+  @media (max-width: 900px) {
+    .footer__inner { grid-template-columns: 1fr 1fr; }
+  }
+</style>

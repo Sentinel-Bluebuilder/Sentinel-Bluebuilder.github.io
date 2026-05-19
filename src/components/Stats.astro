@@ -1,0 +1,47 @@
+---
+const stats = [
+  { value: '3,200+', label: 'Node Operators' },
+  { value: '85+',    label: 'Countries Served' },
+  { value: 'PB+',    label: 'P2P Bandwidth Routed' },
+  { value: '8',      label: 'Live dVPN Apps' },
+];
+---
+<section class="section section--tight stats">
+  <div class="container">
+    <span class="eyebrow">Built for Scale</span>
+    <h2>A production network, already in flight.</h2>
+    <div class="grid grid-4 stats__grid">
+      {stats.map(s => (
+        <div class="stats__card">
+          <div class="stats__value">{s.value}</div>
+          <div class="stats__label">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats__grid { margin-top: 36px; }
+  .stats__card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+  }
+  .stats__value {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #3d7eff, #0156fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .stats__label {
+    margin-top: 8px;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+  }
+</style>

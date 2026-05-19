@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0156fc" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0b0f17" stop-opacity="1"/>
+    </linearGradient>
+    <radialGradient id="r" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="0%" stop-color="#3d7eff" stop-opacity="0.5"/>
+      <stop offset="80%" stop-color="#0b0f17" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="#0b0f17"/>
+  <rect width="1600" height="1000" fill="url(#g)"/>
+  <rect width="1600" height="1000" fill="url(#r)"/>
+  <g font-family="Funnel Display, system-ui, sans-serif" fill="#e6eaf2">
+    <text x="80" y="120" font-size="22" fill="#6ee7ff" letter-spacing="6">SENTINEL · PREVIEW</text>
+    <text x="80" y="220" font-size="76" font-weight="600" letter-spacing="-2">Fleet Console</text>
+    <text x="80" y="290" font-size="28" fill="#98a0b0">One node or a fleet of thousands · grouped by region</text>
+    <g transform="translate(80, 380)" stroke="#2a3142" stroke-width="1" fill="#10151f">
+      <rect x="0" y="0" width="1440" height="500" rx="14"/>
+    </g>
+    <g transform="translate(120, 430)" font-size="20" fill="#7f8497">
+      <text font-size="18" fill="#7f8497">REGION</text>
+      <text x="240" font-size="18" fill="#7f8497">NODES</text>
+      <text x="420" font-size="18" fill="#7f8497">UPTIME</text>
+      <text x="640" font-size="18" fill="#7f8497">REVENUE 7d</text>
+      <text x="900" font-size="18" fill="#7f8497">STATUS</text>
+    </g>
+    <g transform="translate(120, 480)" font-size="22" fill="#ededed">
+      <g><text>eu-fra-01</text><text x="240">142</text><text x="420">99.98%</text><text x="640">$3,240</text><text x="900" fill="#28c840">● healthy</text></g>
+      <g transform="translate(0, 50)"><text>us-east-01</text><text x="240">98</text><text x="420">99.94%</text><text x="640">$2,810</text><text x="900" fill="#28c840">● healthy</text></g>
+      <g transform="translate(0, 100)"><text>ap-sg-01</text><text x="240">76</text><text x="420">99.91%</text><text x="640">$2,140</text><text x="900" fill="#28c840">● healthy</text></g>
+      <g transform="translate(0, 150)"><text>sa-gru-01</text><text x="240">32</text><text x="420">99.42%</text><text x="640">$890</text><text x="900" fill="#febc2e">● degraded</text></g>
+      <g transform="translate(0, 200)"><text>af-cpt-01</text><text x="240">14</text><text x="420">100.00%</text><text x="640">$320</text><text x="900" fill="#28c840">● healthy</text></g>
+      <g transform="translate(0, 250)"><text>oc-syd-01</text><text x="240">21</text><text x="420">99.88%</text><text x="640">$640</text><text x="900" fill="#28c840">● healthy</text></g>
+    </g>
+  </g>
+</svg>

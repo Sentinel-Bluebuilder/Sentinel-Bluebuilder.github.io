@@ -1,0 +1,102 @@
+---
+---
+<section id="node-tester" class="section node-tester">
+  <div class="container">
+    <div class="nt__head">
+      <span class="eyebrow">Node Tester</span>
+      <h2>Verify every node, in real time.</h2>
+      <p class="nt__intro">
+        The Node Tester is the operator's source of truth. Probe any Sentinel node, watch throughput,
+        latency, and route quality live, and produce signed health reports.
+      </p>
+    </div>
+
+    <div class="nt__frame">
+      <div class="nt__frame-head">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="nt__frame-url">tester.sentinel.co — live</span>
+        <span class="nt__live">
+          <span class="nt__live-dot"></span> LIVE
+        </span>
+      </div>
+      <div class="nt__viewport">
+        {/* Swap this <img> for <iframe src="https://tester.sentinel.co" /> when the live tester is ready. */}
+        <img src="/screenshots/node-tester/01-connect.svg" alt="Node Tester live preview" />
+      </div>
+    </div>
+
+    <div class="nt__cta">
+      <a href="https://github.com/sentinel-official" target="_blank" rel="noopener" class="btn btn--primary">Open Node Tester</a>
+      <a href="#node-hosting" class="btn">Host a Node</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .node-tester { border-top: 1px solid var(--border); }
+  .nt__head { max-width: 720px; margin-bottom: 36px; }
+  .nt__intro { font-size: 1.08rem; }
+
+  .nt__frame {
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    padding: 14px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -30px var(--accent-glow);
+  }
+  .nt__frame-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px 14px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 14px;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot:nth-child(1) { background: #ff5f57; }
+  .dot:nth-child(2) { background: #febc2e; }
+  .dot:nth-child(3) { background: #28c840; }
+  .nt__frame-url {
+    margin-left: 10px;
+    color: var(--text-mute);
+    font-size: 0.85rem;
+    font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+  }
+  .nt__live {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    color: #ff5f57;
+    text-transform: uppercase;
+  }
+  .nt__live-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #ff5f57;
+    animation: nt-pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes nt-pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+  .nt__viewport {
+    aspect-ratio: 16 / 9;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .nt__viewport img, .nt__viewport iframe {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border: 0;
+  }
+
+  .nt__cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+</style>
