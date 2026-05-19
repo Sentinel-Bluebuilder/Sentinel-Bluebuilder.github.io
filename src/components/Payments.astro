@@ -1,0 +1,113 @@
+---
+const gateways = [
+  { name: 'Stripe',     logo: '/logos/payments/stripe.svg',    note: 'Cards, Apple Pay, Google Pay, SEPA' },
+  { name: 'USDC',       logo: '/logos/payments/usdc.svg',      note: 'Native USDC on Base, Ethereum, Solana' },
+  { name: 'Bitcoin',    logo: '/logos/payments/bitcoin.svg',   note: 'On-chain BTC and Lightning' },
+  { name: 'Ethereum',   logo: '/logos/payments/ethereum.svg',  note: 'ETH and any ERC-20' },
+  { name: 'x402',       logo: '/logos/payments/x402.svg',      note: 'Agentic pay-per-request, no API keys' },
+  { name: 'Coinbase',   logo: '/logos/payments/coinbase.svg',  note: 'Coinbase Commerce checkout' },
+  { name: 'MoonPay',    logo: '/logos/payments/moonpay.svg',   note: 'Fiat on-ramp, 160+ countries' },
+  { name: 'Apple Pay',  logo: '/logos/payments/applepay.svg',  note: 'Via Stripe or in-app purchase' },
+  { name: 'Google Pay', logo: '/logos/payments/googlepay.svg', note: 'Via Stripe or Play billing' },
+];
+---
+<section id="payments" class="section payments">
+  <div class="container">
+    <div class="pay__head">
+      <span class="eyebrow">Configure Payment Options</span>
+      <h2>Plug in the rails your users already use.</h2>
+      <p class="pay__intro">
+        Sentinel plans are payment-agnostic. Charge in fiat, stablecoins, BTC or ETH &mdash; or let
+        AI agents pay per request with x402. Pick the gateways your users ask for; the Plan Manager
+        handles routing, settlement and retries.
+      </p>
+    </div>
+
+    <div class="pay__grid">
+      {gateways.map(g => (
+        <div class="pay__card">
+          <div class="pay__logo">
+            <img src={g.logo} alt={g.name} width="28" height="28" loading="lazy" />
+          </div>
+          <div class="pay__meta">
+            <strong>{g.name}</strong>
+            <span>{g.note}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="pay__cta">
+      <a href="https://docs.sentinel.co" target="_blank" rel="noopener" class="btn btn--primary">Payment Docs</a>
+      <a href="#plan-manager" class="btn">Back to Plan Manager</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .payments { border-top: 1px solid var(--border); }
+  .pay__head { max-width: 720px; margin-bottom: 36px; }
+  .pay__intro { font-size: 1.05rem; }
+
+  .pay__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .pay__card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .pay__card:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .pay__logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: rgba(1, 86, 252, 0.10);
+    border: 1px solid var(--border-strong);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .pay__logo img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+  .pay__meta { display: flex; flex-direction: column; min-width: 0; }
+  .pay__meta strong {
+    color: var(--text);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  .pay__meta span {
+    color: var(--text-mute);
+    font-size: 0.85rem;
+    margin-top: 2px;
+  }
+
+  .pay__cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  @media (max-width: 900px) {
+    .pay__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .pay__grid { grid-template-columns: 1fr; }
+  }
+</style>

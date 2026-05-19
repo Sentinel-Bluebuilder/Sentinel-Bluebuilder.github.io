@@ -1,47 +1,103 @@
 ---
-const stats = [
-  { value: '3,200+', label: 'Node Operators' },
-  { value: '85+',    label: 'Countries Served' },
-  { value: 'PB+',    label: 'P2P Bandwidth Routed' },
-  { value: '8',      label: 'Live dVPN Apps' },
+const steps = [
+  {
+    n: '01',
+    title: 'Create a subscription plan and add nodes',
+    body: 'Spin up a plan in the Plan Manager: pricing, regions, bandwidth caps. Drop any Sentinel node into the plan in seconds, with built-in failover and routing.',
+    href: '#plan-manager',
+    cta: 'Open Plan Manager',
+  },
+  {
+    n: '02',
+    title: 'Build your dVPN application',
+    body: 'Use the multi-platform SDK to wrap the network in your own brand. Native bindings for iOS, Android, desktop, web and TV — bring your UI, we handle bandwidth and routing.',
+    href: '#sdk',
+    cta: 'See the SDK',
+  },
+  {
+    n: '03',
+    title: 'Configure payment options',
+    body: 'Plug in the gateways your users already use — Stripe, USDC, BTC, ETH, on-ramps and x402 agentic payments. Mix and match per plan, swap them anytime.',
+    href: '#payments',
+    cta: 'See Payment Gateways',
+  },
 ];
 ---
-<section class="section section--tight stats">
+<section id="how-to-build" class="section section--tight build-steps">
   <div class="container">
-    <span class="eyebrow">Built for Scale</span>
-    <h2>A production network, already in flight.</h2>
-    <div class="grid grid-4 stats__grid">
-      {stats.map(s => (
-        <div class="stats__card">
-          <div class="stats__value">{s.value}</div>
-          <div class="stats__label">{s.label}</div>
-        </div>
+    <span class="eyebrow">How to Build Your dVPN</span>
+    <h2>Three steps from zero to a production dVPN.</h2>
+    <p class="build-steps__intro">
+      Every team shipping on Sentinel follows the same path. Pick your nodes, ship your app,
+      pick your payment rails &mdash; the network handles the rest.
+    </p>
+
+    <ol class="build-steps__grid">
+      {steps.map(s => (
+        <li class="build-step">
+          <div class="build-step__num">{s.n}</div>
+          <h3>{s.title}</h3>
+          <p>{s.body}</p>
+          <a class="build-step__cta" href={s.href}>{s.cta} <span aria-hidden="true">→</span></a>
+        </li>
       ))}
-    </div>
+    </ol>
   </div>
 </section>
 
 <style>
-  .stats__grid { margin-top: 36px; }
-  .stats__card {
+  .build-steps__intro { max-width: 720px; margin-bottom: 40px; font-size: 1.05rem; }
+  .build-steps__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .build-step {
+    position: relative;
+    padding: 28px 26px;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 28px 24px;
+    border-radius: var(--radius-lg);
+    transition: border-color 0.15s ease, transform 0.15s ease;
   }
-  .stats__value {
+  .build-step:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .build-step__num {
     font-family: var(--font-display);
-    font-size: 2.6rem;
+    font-size: 0.95rem;
     font-weight: 500;
-    letter-spacing: -0.03em;
-    background: linear-gradient(135deg, #3d7eff, #0156fc);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    letter-spacing: 0.18em;
+    color: var(--accent-2);
+    margin-bottom: 14px;
   }
-  .stats__label {
-    margin-top: 8px;
+  .build-step h3 {
+    font-size: 1.18rem;
+    margin: 0 0 10px;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .build-step p {
     color: var(--text-dim);
     font-size: 0.95rem;
+    margin: 0 0 18px;
+    line-height: 1.55;
+  }
+  .build-step__cta {
+    color: var(--accent-2);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  .build-step__cta:hover { color: var(--text); }
+
+  @media (max-width: 900px) {
+    .build-steps__grid { grid-template-columns: 1fr; }
   }
 </style>
